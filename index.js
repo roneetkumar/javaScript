@@ -17,7 +17,6 @@ console.log(`I am ${20 + 2} years old`);
 const PI = 3.14;
 console.log(PI);
 
-
 // datatypes
 //string
 let string = "String";
@@ -33,10 +32,10 @@ console.log(box); // variable box has no been defined;
 
 //type of function or operator
 console.log(typeof 1); // it return "number" and as function (typeof(1));
-console.log('string');
+console.log(typeof 'string');
 console.log(typeof true); // boolean
 console.log(typeof null); // its a error in the language, null is not an object
-console.log(typeof alert); // it returns "function" (alert is function)
+// console.log(typeof alert); // it returns "function" (alert is function)
 
 // explicit typecast tostring
 let value = true;
@@ -107,7 +106,7 @@ console.log('01' == 1); // true, string '01' becomes a number 1
 //Non-traditional use of ‘?’
 let company = 'Netscape';
 (company == 'Netscape') ?
-console.log('Right!'):
+    console.log('Right!') :
     console.log('Wrong.');
 
 // short-circuit evaluation
@@ -150,3 +149,28 @@ hello();
 //     () => console.log("You agreed."),
 //     () => console.log("You canceled the execution.")
 // );
+
+//objects
+
+// let user = new Object(); // object constructor syntax
+// let user = {} //literal syntax
+
+let user = {
+    name: "Roneet",
+    age: 22,
+    "course name": "Information Technology"
+};
+
+// delete user.name; // to delete properties
+console.log(user.name);
+console.log(user["age"]);
+console.log(user["course name"]);
+
+//coping by reference
+
+let user1 = {
+    name: "John"
+};
+let admin = user1; // copy the reference
+
+console.log(admin.name);
