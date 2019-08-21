@@ -7,10 +7,9 @@ __ = ele => document.querySelectorAll(ele);
 let input = _('input');
 
 _('input').onkeyup = (event) => {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && _('input').value == '') {
         let string = input.value;
         let brackets = string.replace(/[^(]/g, "").length;
-        console.log(brackets);
 
         do {
             let stringArray = string.trim();
@@ -28,8 +27,8 @@ _('input').onkeyup = (event) => {
             let result;
 
             tempString = checkBrackets(stringArray).trim();
+
             numArray = tempString.trim().split(/ +/);
-            console.log(numArray);
 
             let operation = '';
             for (let i = 0; i < numArray.length; i++) {
@@ -59,9 +58,6 @@ _('input').onkeyup = (event) => {
                 }
             }
             string = string.replace(`( ${tempString} )`, result);
-            console.log(string);
-            console.log(numArray);
-
 
             if (!isNaN(string)) {
                 break;
@@ -70,12 +66,10 @@ _('input').onkeyup = (event) => {
             if (result !== undefined) {
                 _('body h1').innerText = result;
             }
-
             brackets--;
         } while (brackets >= 0);
     }
 }
-
 
 
 
