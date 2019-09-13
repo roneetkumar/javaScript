@@ -1,6 +1,9 @@
 let _ = el => document.querySelector(el);
 let __ = el => document.querySelectorAll(el);
 
+let matrixValues1;
+let matrixValues2;
+
 function createMatrix(matrix) {
 
     col = _(matrix + ' .col').value;
@@ -14,19 +17,26 @@ function createMatrix(matrix) {
             ele.innerHTML += `<td class="c${j}"><input type="text" maxlength="1"></td>`;
         })
     }
-    // console.log(matrix + " button");
 
-    _(matrix + ' button').onclick = () => {
-        let matrixValue = __(matrix + ' tr');
-        // console.clear();
-        for (let i = 0; i < matrixValue.length; i++) {
-            let row = matrixValue[i].querySelectorAll('td');
+    _('button').onclick = () => {
+        let matrix1 = __('.matrix1 tr');
+        let matrix2 = __('.matrix2 tr');
+        matrixValues1 = [];
+        matrixValues2 = [];
+        for (let i = 0; i < matrix1.length; i++) {
+            let row = matrix1[i].querySelectorAll('td');
             for (let j = 0; j < row.length; j++) {
-                let col = [];
-                col[[i, j]] = row[j].innerText;
-                console.log(col);
+                matrixValues1[[i, j]] = row[j].querySelector('input').value;
+
             }
         }
+        for (let i = 0; i < matrix2.length; i++) {
+            let row = matrix2[i].querySelectorAll('td');
+            for (let j = 0; j < row.length; j++) {
+                matrixValues2[[i, j]] = row[j].querySelector('input').value;
+            }
+        }
+        addMatrix(matrixValues1, matrixValues2);
     }
 }
 
@@ -37,7 +47,6 @@ __('.matrix1 input').forEach(ele => {
     ele.oninput = () => {
         _('.matrix1 tbody').innerHTML = ``;
         createMatrix('.matrix1');
-
     }
 });
 
@@ -47,6 +56,13 @@ __('.matrix2 input').forEach(ele => {
         createMatrix('.matrix2');
     }
 });
+
+function addMatrix(matrix1, matrix2) {
+    console.log(+matrix1[[0, 0]] + +matrix2[[0, 0]]);
+
+}
+
+
 
 
 
