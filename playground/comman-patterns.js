@@ -77,7 +77,7 @@ const sumZero = nums => {
 // console.log(sumZero(nums));
 
 
-// const fac = num => num !== 1 ? num * fac(num - 1) : 1;
+const fac = num => num !== 1 ? num * fac(num - 1) : 1;
 
 
 // console.log(fac(5));
@@ -169,12 +169,6 @@ function binarySearch(arr, val) {
 // console.log(binarySearch(usernames, 55));
 
 
-// loop over longer string
-// loop over shoter srting
-// is not mached break out ofinner loop
-//if character matched keep going
-
-
 function naiveSearch(long, short) {
     let count = 0;
     for (let i = 0; i < long.length; i++) {
@@ -189,20 +183,79 @@ function naiveSearch(long, short) {
                 console.log('found');
                 count++;
             }
-
         }
-
     }
     return count
 }
 
 // naiveSearch('lorie loled', 'lol')
 
-function sort(arr) {
+const bubble = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+// console.log(bubble([22, 44, 1, 96, 333, 77, 4, 2, 9]));
+
+const swap = (arr, left, right) => [arr[left], arr[right]] = [arr[right], arr[left]];
+
+const bubbleFixed = (arr) => {
+    for (let i = arr.length; i > 0; i--) {
+        let noSwaps = true;
+        for (let j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr, j, j + 1);
+                noSwaps = false
+            }
+        }
+        if (noSwaps) break;
+    }
+    return arr;
+}
+
+// console.log(bubbleFixed([1, 3, 5, 6, 4, 7]));
+
+
+const selectionSort = (arr) => {
+    for (let min = i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) min = j;
+        }
+        if (i !== min) swap(arr, i, min)
+    }
+    return arr
+}
+
+// console.log(selectionSort([22, 44, 1, 96, 333, 77, 4, 2, 9]));
+
+const insertionSort = (arr) => {
+
+    for (let i = 1; i < arr.length; i++) {
+        let curr = arr[i];
+        for (var j = i - 1; j >= 0 && arr[j] > curr; j--) {
+            if (arr[j] > curr) arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = curr;
+    }
+    return arr;
+}
+
+// console.log(insertionSort([22, 44, 1, 96, 333, 77, 4, 2, 9]));
+
+const mergeSort = (arr) => {
+
 
 
 
     return arr;
 }
 
-sort([24, 23, 7, 2, 1, 45, 64, 32])
+console.log(mergeSort([22, 44, 1, 96, 333, 77, 4, 2, 9]));
