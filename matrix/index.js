@@ -36,7 +36,7 @@ function createMatrix(matrix) {
                 matrixValues2[[i, j]] = row[j].querySelector('input').value;
             }
         }
-        addMatrix(matrixValues1, matrixValues2);
+        // addMatrix(matrixValues1, matrixValues2);
     }
 }
 
@@ -56,11 +56,6 @@ __('.matrix2 input').forEach(ele => {
         createMatrix('.matrix2');
     }
 });
-
-function addMatrix(matrix1, matrix2) {
-    console.log(+matrix1[[0, 0]] + +matrix2[[0, 0]]);
-
-}
 
 
 
