@@ -86,23 +86,23 @@ const fac = num => num !== 1 ? num * fac(num - 1) : 1;
 
 const collectOddEven = (arr) => {
 
-    // let odds = [];
-    // let evens = [];
+    let odds = [];
+    let evens = [];
 
-    // const collector = (arr) => {
+    const collector = (arr) => {
 
-    //     if (arr.length === 0) {
-    //         return;
-    //     }
-    //     if (arr[0] % 2 === 0) {
-    //         evens.push(arr[0]);
-    //     } else {
-    //         odds.push(arr[0]);
-    //     }
-    //     collector(arr.slice(1));
-    // }
-    // collector(arr);
-    // return { odds, evens }
+        if (arr.length === 0) {
+            return;
+        }
+        if (arr[0] % 2 === 0) {
+            evens.push(arr[0]);
+        } else {
+            odds.push(arr[0]);
+        }
+        collector(arr.slice(1));
+    }
+    collector(arr);
+    return { odds, evens }
 }
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -138,14 +138,11 @@ function linearSearch(arr, val) {
 
 // create two varible left for index 0 and right for index n-1
 //  find the middle element, if find the value return index
-//
-
 
 function binarySearch(arr, val) {
 
     arr.sort((a, b) => a - b);
     console.log(arr, val);
-
 
     let start = 0;
     let end = arr.length - 1;
@@ -167,7 +164,6 @@ function binarySearch(arr, val) {
 }
 
 // console.log(binarySearch(usernames, 55));
-
 
 function naiveSearch(long, short) {
     let count = 0;
@@ -251,9 +247,6 @@ const insertionSort = (arr) => {
 // console.log(insertionSort([22, 44, 1, 96, 333, 77, 4, 2, 9]));
 
 const mergeSort = (arr) => {
-
-
-
 
     return arr;
 }

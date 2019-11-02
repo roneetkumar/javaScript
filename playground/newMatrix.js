@@ -28,4 +28,6 @@ function matrix(a, b, c) {
     }
 }
 
-console.log(c);
+console.log(c[0]);
+console.log(c[1]);
+console.log(c[2]);

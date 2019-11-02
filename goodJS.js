@@ -75,7 +75,7 @@ function modifyArray(nums) {
 
 let arr = [1, 2, 3, 4, 5];
 
-console.log(modifyArray(arr));
+// console.log(modifyArray(arr));
 
 
 

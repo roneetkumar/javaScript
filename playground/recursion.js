@@ -11,4 +11,4 @@ const revNums = num => num > 1 ? console.log(num) : revNums(num - 1);
 // console.log(arrMul([4, 3, 2]));
 // console.log(sumNums(10))
 // nums(10)
-revNums(10)
+// revNums(10)
