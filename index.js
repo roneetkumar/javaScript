@@ -1,4 +1,4 @@
-// Classes Practice
+// Classes Practices
 
 class Elements {
     constructor(name, buildYear) {
